@@ -19,6 +19,9 @@ jobs:
   build:
     name: Build the distribution
     runs-on: ubuntu-latest
+    # A dispatch runs from a branch, whose name is not a version; a release
+    # has to be a `vX.Y.Z` tag.
+    if: github.event_name != 'release' || startsWith(github.ref_name, 'v')
     steps:
       - uses: actions/checkout@v5
         with:
@@ -32,7 +35,7 @@ jobs:
       - name: Check that the tag matches the project version
         if: github.event_name == 'release'
         run: |
-          version="$(uv version --short)"
+          version="$(uv version --short --color never)"
           tag="${GITHUB_REF_NAME#v}"
           if [ "$version" != "$tag" ]; then
             echo "::error::Tag $tag does not match the version $version in pyproject.toml"
@@ -105,12 +108,17 @@ jobs:
           name: dist
           path: dist/
 
-      - name: Sign with Sigstore
-        uses: sigstore/gh-action-sigstore-python@v3.0.0
+      # Not older than this: Sigstore rotated its TUF root, and a version that
+      # bundles the trust root from before it fails with
+      # `UnsignedMetadataError: root was signed by 0/3 keys` -- after the
+      # upload has already happened, so the package is out and the signatures
+      # are not.
+      #
+      # It attaches the artifacts and their bundles to the release on its own,
+      # which is why there is no upload step here: adding one puts the same
+      # filenames up twice and the second attempt is what fails.
+      - name: Sign with Sigstore and attach to the release
+        uses: sigstore/gh-action-sigstore-python@v3.5.0
         with:
           inputs: ./dist/*.tar.gz ./dist/*.whl
-
-      - name: Upload to the GitHub release
-        env:
-          GITHUB_TOKEN: ${{ github.token }}
-        run: gh release upload "${GITHUB_REF_NAME}" dist/** --repo "${GITHUB_REPOSITORY}"
+          release-signing-artifacts: true

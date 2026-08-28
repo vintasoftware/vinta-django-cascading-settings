@@ -7,6 +7,9 @@ All notable changes to this project are documented here. The format follows
 
 ## [Unreleased]
 
+
+## [0.1.0] - 2026-08-27
+
 ### Added
 
 - `SettingsLevel`: the levels settings cascade through, tied to models by content
@@ -51,13 +54,5 @@ All notable changes to this project are documented here. The format follows
   name says. It pins through `commands_pre` now, and prints what it resolved.
 
 
-<!--
-  On release, move the entries above under a dated heading and repoint the links:
-
-      ## [0.1.0] - YYYY-MM-DD
-
-      [Unreleased]: https://github.com/vintasoftware/vinta-django-cascading-settings/compare/v0.1.0...HEAD
-      [0.1.0]: https://github.com/vintasoftware/vinta-django-cascading-settings/releases/tag/v0.1.0
--->
-
-[Unreleased]: https://github.com/vintasoftware/vinta-django-cascading-settings/commits/main
+[Unreleased]: https://github.com/vintasoftware/vinta-django-cascading-settings/compare/v0.1.0...HEAD
+[0.1.0]: https://github.com/vintasoftware/vinta-django-cascading-settings/releases/tag/v0.1.0
