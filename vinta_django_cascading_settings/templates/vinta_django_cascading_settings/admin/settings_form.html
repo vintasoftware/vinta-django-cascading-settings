@@ -1,0 +1,71 @@
+{% extends "admin/base_site.html" %}
+{% load i18n admin_urls %}
+
+{% block breadcrumbs %}
+  <div class="breadcrumbs">
+    <a href="{% url 'admin:index' %}">{% translate "Home" %}</a>
+    &rsaquo; <a href="{% url 'admin:app_list' app_label=opts.app_label %}">{{ opts.app_config.verbose_name }}</a>
+    &rsaquo; <a href="{% url opts|admin_urlname:'changelist' %}">{{ opts.verbose_name_plural|capfirst }}</a>
+    &rsaquo; <a href="{% url opts|admin_urlname:'change' object_id %}">{{ original|truncatewords:"18" }}</a>
+    &rsaquo; {% translate "Settings" %}
+  </div>
+{% endblock %}
+
+{% block content %}
+  <div id="content-main">
+    {% if schemas|length > 1 %}
+      <ul class="object-tools">
+        {% for entry in schemas %}
+          <li>
+            <a href="?schema={{ entry.key }}"{% if entry.pk == schema.pk %} class="addlink"{% endif %}>
+              {{ entry.key }}
+            </a>
+          </li>
+        {% endfor %}
+      </ul>
+    {% endif %}
+
+    <form method="post" novalidate>
+      {% csrf_token %}
+      <div>
+        <fieldset class="module aligned">
+          <h2>
+            {% blocktranslate with schema=schema.key level=level.key %}
+              {{ schema }} settings, at the {{ level }} level
+            {% endblocktranslate %}
+          </h2>
+          <p class="help">
+            {% blocktranslate trimmed %}
+              Each box holds a JSON value this level sets. Leave one empty and the setting is
+              inherited from the level above; type null to set it to nothing on purpose.
+            {% endblocktranslate %}
+          </p>
+
+          {% if form.non_field_errors %}{{ form.non_field_errors }}{% endif %}
+
+          {% for row in rows %}
+            <div class="form-row{% if row.value.errors %} errors{% endif %}">
+              {{ row.value.errors }}
+              <div class="flex-container">
+                <label for="{{ row.value.id_for_label }}">{{ row.value.label }}</label>
+                {{ row.value }}
+              </div>
+              <div class="help">{{ row.value.help_text }}</div>
+              <div class="flex-container">
+                {{ row.lock }}
+                <label class="vCheckboxLabel" for="{{ row.lock.id_for_label }}">
+                  {{ row.lock.label }}
+                </label>
+                <span class="help">{{ row.lock.help_text }}</span>
+              </div>
+            </div>
+          {% endfor %}
+        </fieldset>
+      </div>
+
+      <div class="submit-row">
+        <input type="submit" value="{% translate 'Save' %}" class="default">
+      </div>
+    </form>
+  </div>
+{% endblock %}

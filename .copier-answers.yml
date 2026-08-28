@@ -1,0 +1,24 @@
+# This file is maintained by Copier: it records the answers used to generate the
+# project so `copier update` can replay them.  Do not edit it by hand.
+_commit: 48dbf2a
+_src_path: gh:vintasoftware/vinta-django-package
+app_config_class: VintaDjangoCascadingSettingsConfig
+app_verbose_name: Vinta Django Cascading Settings
+author_email: contact@vinta.com.br
+author_name: Vinta Software
+copyright_year: '2026'
+distribution_name: vinta-django-cascading-settings
+django_app_label: vinta_django_cascading_settings
+django_min: '5.2'
+github_org: vintasoftware
+github_repo: vinta-django-cascading-settings
+initial_version: 0.1.0
+keywords: django, vinta, cascading, settings
+license: MIT
+package_name: vinta_django_cascading_settings
+project_description: A reusable Django application for managing settings in multiple
+    levels with inheritance
+project_name: Vinta Django Cascading Settings
+publish_to_pypi: true
+python_min: '3.10'
+test_django_main: true
