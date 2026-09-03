@@ -1443,7 +1443,7 @@ dev = [
 [package.metadata]
 requires-dist = [
     { name = "django", specifier = ">=5.2" },
-    { name = "vinta-django-questionnaires", specifier = ">=0.2.0,<0.3.0" },
+    { name = "vinta-django-questionnaires", specifier = ">=0.2.0,<0.4.0" },
 ]
 
 [package.metadata.requires-dev]
@@ -1462,7 +1462,7 @@ dev = [
 
 [[package]]
 name = "vinta-django-questionnaires"
-version = "0.2.0"
+version = "0.3.0"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "django", version = "5.2.17", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version < '3.12'" },
@@ -1470,9 +1470,9 @@ dependencies = [
     { name = "jmespath" },
     { name = "jsonschema" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/65/17/805c175f8af9f72d71238745eb41a9f26f916bb4a77df2ec3e37cbea5970/vinta_django_questionnaires-0.2.0.tar.gz", hash = "sha256:ff9d083e97e50bd8b9b282ef0dee905be2ea39c9155329d5efa8d8444a70d32d", size = 199885, upload-time = "2026-08-28T01:13:23.763Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/e1/4b/906f05818229463792207f7ce1972c1a45a8e13e40d81a7a1b3bd679e60e/vinta_django_questionnaires-0.3.0.tar.gz", hash = "sha256:d519962e93e421b6fa299b8bef026e18157dd55292588fbb448c42361bafb446", size = 205322, upload-time = "2026-09-02T02:27:50.55Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/11/30/99c7f3086dd8af664471191661d3dabd0b0248774cbeb057e4a9534438a3/vinta_django_questionnaires-0.2.0-py3-none-any.whl", hash = "sha256:90f129efe3c6809e967cbbba6f5dfe6a9f92c525fb2f6e69f1bcafcf85682894", size = 177357, upload-time = "2026-08-28T01:13:22.129Z" },
+    { url = "https://files.pythonhosted.org/packages/9a/9b/ea78a649e331dda159763a5f59a5de8513a4cc1b2cb71d25321747409c23/vinta_django_questionnaires-0.3.0-py3-none-any.whl", hash = "sha256:467b0e3558ae70a63abe8d540bdadc3d4231882ade1f519fe2636d8e43958716", size = 179339, upload-time = "2026-09-02T02:27:48.919Z" },
 ]
 
 [[package]]
