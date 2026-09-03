@@ -7,6 +7,14 @@ All notable changes to this project are documented here. The format follows
 
 ## [Unreleased]
 
+### Changed
+
+- The `vinta-django-questionnaires` pin widens to `<0.4.0`. 0.3.0 adds i18n --
+  a `strings` prop on the React editor and a `locale/` catalog for the Django
+  app -- and touches no Python source this package imports from: `models.py`,
+  `question_types.py`, `validators/base.py`, `submissions.py`, `plan.py` and
+  `models_registry.py` are byte-identical to 0.2.3's.
+
 
 ## [0.1.0] - 2026-08-27
 

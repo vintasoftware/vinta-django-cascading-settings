@@ -39,9 +39,13 @@ classifiers = [
 ]
 dependencies = [
     "django>=5.2",
-    # Pinned under the next minor: the questionnaires package is pre-1.0 and its
-    # 0.2.0 carried breaking changes, so a minor bump is reviewed rather than taken.
-    "vinta-django-questionnaires>=0.2.0,<0.3.0",
+    # Pinned under the next minor: the questionnaires package is pre-1.0, so a
+    # minor bump is reviewed rather than taken automatically. Reviewed for 0.3.0:
+    # it adds i18n (a `strings` prop on the React editor, a `locale/` catalog for
+    # the Django app) and touches no Python source this package imports from --
+    # `models.py`, `question_types.py`, `validators/base.py`, `submissions.py`,
+    # `plan.py` and `models_registry.py` are byte-identical to 0.2.3.
+    "vinta-django-questionnaires>=0.2.0,<0.4.0",
 ]
 
 [project.urls]
