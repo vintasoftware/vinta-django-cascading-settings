@@ -7,6 +7,9 @@ All notable changes to this project are documented here. The format follows
 
 ## [Unreleased]
 
+
+## [0.1.1] - 2026-09-03
+
 ### Changed
 
 - The `vinta-django-questionnaires` pin widens to `<0.4.0`. 0.3.0 adds i18n --
@@ -62,5 +65,6 @@ All notable changes to this project are documented here. The format follows
   name says. It pins through `commands_pre` now, and prints what it resolved.
 
 
-[Unreleased]: https://github.com/vintasoftware/vinta-django-cascading-settings/compare/v0.1.0...HEAD
+[Unreleased]: https://github.com/vintasoftware/vinta-django-cascading-settings/compare/v0.1.1...HEAD
+[0.1.1]: https://github.com/vintasoftware/vinta-django-cascading-settings/compare/v0.1.0...v0.1.1
 [0.1.0]: https://github.com/vintasoftware/vinta-django-cascading-settings/releases/tag/v0.1.0
